@@ -1,30 +1,36 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div :class="{'dark': isDarkMode}" class="h-screen">
+    <Navbar :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" />
+
+    <router-view :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" class="pt-20" />
+
+    <!-- <Footer :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode"   /> -->
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Footer from './components/Footer.vue';
+import Navbar from './components/Navbar.vue';
 
-nav {
-  padding: 30px;
-}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  components:{
+    Navbar, Footer
+  },
+  data() {
+    return {
+      isDarkMode: false, // Initially set to false (light mode)
+    };
+  },
+  created() {
+    const savedMode = localStorage.getItem('darkMode') === 'true';
+    this.isDarkMode = savedMode;
+  },
+  methods: {
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+      localStorage.setItem('darkMode', this.isDarkMode);
+    },
+  },
+};
+</script>
