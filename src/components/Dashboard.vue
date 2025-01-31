@@ -1,10 +1,10 @@
 <template>
   <div
     :class="{'bg-white text-black': !isDarkMode, 'bg-gray-900 text-white': isDarkMode}"
-    class="mt-20 max-w-6xl mx-auto px-6 my-44 transition-colors duration-300"
+    class="max-w-6xl mx-auto px-6 md:px-20 pt-20  transition-colors duration-300 "
   >
     <!-- Hacker Profile -->
-    <div class="flex items-center space-x-4 mb-8">
+    <div class="flex items-center space-x-4 mb-8 ">
       <img
         :src="hackerImage"
         alt="Hacker Profile"
@@ -102,6 +102,9 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  min-height: 100vh; /* Ensures content stretches at least full height */
+  overflow-x: scroll; 
+  padding-bottom: 500px;/* Prevents horizontal scrolling issues */
 }
 
 /* Dashboard Card Styling */
@@ -114,6 +117,9 @@ html, body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   flex-wrap: wrap; /* Allow items to wrap */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 100%; /* Ensures it doesn't shrink */
 }
 
 .dashboard-card:hover {
@@ -121,11 +127,6 @@ html, body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark & Light Mode Colors */
-.dashboard-card {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
 .dashboard-card i {
   color: var(--icon-color);
 }
@@ -170,20 +171,19 @@ html, body {
   --hover-bg: #374151;
 }
 
-/* Responsiveness for Mobile */
+/* Fix Layout Issues on Mobile */
 @media screen and (max-width: 600px) {
   /* Stack items vertically in cards */
   .dashboard-card {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-
   }
 
   /* Adjust grid layout for mobile */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusts grid items */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
   }
 
@@ -194,17 +194,23 @@ html, body {
   /* Adjust margins for mobile */
   .my-44 {
     margin-top: 1rem; /* Reduced margin-top on mobile */
+    margin-bottom: 2rem; /* Ensures footer is not overlapped */
+  }
+
+  /* Ensure footer spacing */
+  .footer {
+    margin-top: auto;
   }
 }
 
 /* General spacing adjustments */
-.mt-8, .my-44 {
+.mt-8 {
   margin-top: 2rem; /* Adjust for mobile */
 }
 
-/* Ensure content doesn't overflow */
 * {
   box-sizing: border-box;
   overflow-wrap: break-word;
 }
+
 </style>

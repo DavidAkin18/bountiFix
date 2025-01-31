@@ -38,9 +38,11 @@
       }"
       class="mobile-menu"
     >
-      <router-link to="/dashboard" class="mobile-link" :class="{'active': isActive('/dashboard')}" @click="closeMobileMenu">Dashboard</router-link>
-      <router-link to="/leaderboard" class="mobile-link" :class="{'active': isActive('/leaderboard')}" @click="closeMobileMenu">Leaderboard</router-link>
-      <router-link to="/report-form" class="mobile-link" :class="{'active': isActive('/report-form')}" @click="closeMobileMenu">Report Form</router-link>
+      <router-link to="/" class="nav-link" :class="{'active': isActive('/')}" >Home</router-link>
+
+      <router-link to="/dashboard" class="nav-link" :class="{'active': isActive('/dashboard')}" @click="closeMobileMenu">Dashboard</router-link>
+      <router-link to="/leaderboard" class="nav-link" :class="{'active': isActive('/leaderboard')}" @click="closeMobileMenu">Leaderboard</router-link>
+      <router-link to="/report-form" class="nav-link" :class="{'active': isActive('/report-form')}" @click="closeMobileMenu">Report Form</router-link>
       
       <!-- Dark Mode Toggle -->
       <button @click="toggleDarkMode" class="text-3xl">
@@ -138,7 +140,7 @@ nav {
   width: 30%; /* Reduced width */
   height: 100vh; /* Full height */
   z-index: 70;
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

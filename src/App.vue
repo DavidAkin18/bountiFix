@@ -1,10 +1,12 @@
 <template>
-  <div :class="{'dark': isDarkMode}" class="h-screen">
+  <div class="app-container">
     <Navbar :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" />
+    
+    <main class="content pt-20">
+      <router-view :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" />
+    </main>
 
-    <router-view :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" class="pt-20" />
-
-    <!-- <Footer :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode"   /> -->
+    <Footer :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" />
   </div>
 </template>
 
@@ -12,10 +14,10 @@
 import Footer from './components/Footer.vue';
 import Navbar from './components/Navbar.vue';
 
-
 export default {
-  components:{
-    Navbar, Footer
+  components: {
+    Navbar,
+    Footer
   },
   data() {
     return {
@@ -34,3 +36,27 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+/* 🛠 Ensure Full-Page Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the app takes at least the full viewport height */
+}
+
+.content {
+  flex-grow: 1; /* Pushes footer to the bottom */
+  padding-bottom: 50px; /* Default padding */
+}
+
+/* 🛠 Apply 550px padding-bottom only for mobile screens */
+@media (max-width: 768px) {
+  .content {
+    padding-bottom: 500px;
+  }
+}
+</style>
+
+

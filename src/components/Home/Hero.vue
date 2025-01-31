@@ -24,8 +24,8 @@
         <router-link to="/signup" class="px-6 py-3 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700">
           Get Started
         </router-link>
-        <router-link to="#how-it-works" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-md shadow-md hover:bg-gray-300 dark:hover:bg-gray-600">
-          Learn More
+        <router-link to="login" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-md shadow-md hover:bg-gray-300 dark:hover:bg-gray-600">
+          login
         </router-link>
       </div>
       

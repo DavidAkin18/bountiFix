@@ -16,11 +16,11 @@
           <div>
             <h3 class="text-xl font-bold">Quick Links</h3>
             <ul class="mt-2 space-y-2">
-              <li><router-link to="/about" class="hover:text-blue-500 text-gray-300 ">About Us</router-link></li>
-              <li><router-link to="/faq" class="hover:text-blue-500 text-gray-300 ">FAQs</router-link></li>
-              <li><router-link to="/contact" class="hover:text-blue-500 text-gray-300 ">Contact</router-link></li>
+              <li><router-link to="#" class="hover:text-blue-500 text-gray-300 ">About Us</router-link></li>
+              <li><router-link to="#" class="hover:text-blue-500 text-gray-300 ">FAQs</router-link></li>
+              <li><router-link to="#" class="hover:text-blue-500 text-gray-300 ">Contact</router-link></li>
               <li>
-                <router-link to="/terms" class="hover:text-blue-500 text-gray-300 ">Terms & Conditions</router-link>  
+                <router-link to="#" class="hover:text-blue-500 text-gray-300 ">Terms & Conditions</router-link>  
               </li>
             </ul>
           </div>
