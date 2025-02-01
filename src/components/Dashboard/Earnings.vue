@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white  rounded-lg p-6 pt-32 mx-auto md:px-20">
+    <div class="bg-white  rounded-lg p-6 pt-32 mx-auto ">
       <!-- Header -->
       <div class="flex items-center justify-between mb-4">
         <h2 class="text-lg font-semibold">Earnings Overview</h2>

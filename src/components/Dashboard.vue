@@ -6,24 +6,30 @@
     <h1 class="text-xl font-semibold">Dashboard</h1>
 
     <!-- User Avatar -->
-    <div class="flex items-center space-x-4">
-      <img src="" class="h-10 w-10 rounded-full object-cover" alt="User Avatar">
-    </div>
+    <router-link to="/bio" class="flex items-center space-x-4">
+     
+      <img
+        :src="userProfile.profilePicture "
+        class="h-10 w-10 rounded-full object-cover"
+        alt="User Avatar"
+      />
+      <span class="text-sm font-semibold">{{ fullName }}</span>
+    </router-link>
   </nav>
   <div
     :class="{'bg-white text-black': !isDarkMode, 'bg-gray-900 text-white': isDarkMode}"
-    class="max-w5xl mx-auto border px-6 md:px-20 pt-28  transition-colors duration-300 "
+    class="max-w5xl mx-auto z-0 border px-6  pt-10 md:pt-28 transition-colors duration-300 "
   >
     <!-- Hacker Profile -->
     <div class="flex items-center space-x-4 mb-8 ">
       <img
-        :src="hackerImage"
+        :src="userProfile.profilePicture"
         alt="Hacker Profile"
         class="w-16 h-16 rounded-full object-cover border-2"
         :class="{'border-gray-300': !isDarkMode, 'border-gray-600': isDarkMode}"
       />
       <div>
-        <h2 class="text-2xl font-bold">{{ hackerName }}</h2>
+        <h2 class="text-2xl font-bold">{{ fullName }}</h2>
         <p class="text-gray-500 dark:text-gray-400">Ethical Hacker</p>
       </div>
     </div>
@@ -93,6 +99,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   props: {
     isDarkMode: Boolean,
@@ -106,6 +114,14 @@ export default {
       resolvedReports: 8,
       earnings: 4500,
     };
+  },
+  computed: {
+    ...mapState({
+      userProfile: state => state.profile,
+    }),
+    fullName() {
+      return `${this.userProfile.firstName} ${this.userProfile.lastName}`;
+    },
   },
 };
 </script>

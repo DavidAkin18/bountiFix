@@ -14,6 +14,8 @@ import TotalReportsCard from '@/components/Dashboard/TotalReportsCard.vue'
 import Earnings from '@/components/Dashboard/Earnings.vue'
 import Vulnerability from '@/components/Vulnerability/Vulnerability.vue'
 import index from '@/components/Management/index.vue'
+import Index from '@/components/Bounty/index.vue'
+import community from '@/components/Community/community.vue'
 
 const routes = [
   {
@@ -95,10 +97,23 @@ const routes = [
     name:'vulnerability',
     component: Vulnerability
   },
+  // management
   {
     path:'/management',
     name:'management',
     component:index
+  },
+  // bounty
+  {
+    path:'/bounty',
+    name:'bounty',
+    component:Index
+  },
+  // community
+  {
+    path:'/community',
+    name:'community',
+    component:community
   }
   
 ]
