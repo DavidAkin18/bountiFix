@@ -9,11 +9,13 @@
         <FAQ class="w-1/2 px-4" />
         <Contact class="w-1/2 px-4" />
       </div>
+      <Footer/>
     </div>
   </template>
   
   <script>
-  import About from './About.vue';
+  import Footer from '../Footer.vue';
+import About from './About.vue';
   import Contact from './Contact.vue';
   import FAQ from './FAQ.vue';
   import Hero from './Hero.vue';
@@ -26,6 +28,7 @@
       FAQ,
       HowItWork,
       Hero,
+      Footer
     },
   };
   </script>

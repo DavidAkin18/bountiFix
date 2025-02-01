@@ -11,6 +11,9 @@ import CompleteLogin from '@/components/Auth/CompleteLogin.vue'
 import MyReports from '@/components/Dashboard/MyReports.vue'
 import Payments from '@/components/Dashboard/ Payments.vue'
 import TotalReportsCard from '@/components/Dashboard/TotalReportsCard.vue'
+import Earnings from '@/components/Dashboard/Earnings.vue'
+import Vulnerability from '@/components/Vulnerability/Vulnerability.vue'
+import index from '@/components/Management/index.vue'
 
 const routes = [
   {
@@ -78,9 +81,25 @@ const routes = [
   },
   {
     path: '/payments',
-    name: 'Payments',
+    name: 'payments',
     component: Payments,
   },
+  {
+    path: '/earnings',
+    name: 'earnings',
+    component: Earnings,
+  },
+  // Vulnerability
+  {
+    path:'/vulnerability',
+    name:'vulnerability',
+    component: Vulnerability
+  },
+  {
+    path:'/management',
+    name:'management',
+    component:index
+  }
   
 ]
 

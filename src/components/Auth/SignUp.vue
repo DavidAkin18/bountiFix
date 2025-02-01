@@ -1,5 +1,5 @@
 <template>
-  <div class="login flex flex-col lg:flex-row items-center gap-8 lg:justify-center min-h-screen bg-[#E5E5E5]">
+  <div class="login flex flex-col lg:flex-row items-center gap-8 lg:justify-center pt-20 min-h-screen bg-[#E5E5E5]">
     <!-- Black Section -->
     <!-- <DarkPart /> -->
 

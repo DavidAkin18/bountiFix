@@ -4,7 +4,7 @@
       'bg-gray-900 text-white': isDarkMode, 
       'bg-[#dde9f1] text-black': !isDarkMode
     }" 
-    class="flex items-center justify-center pt-12 md:pt-20"
+    class="flex items-center justify-center  pt-32"
   >
     <div 
       :class="{

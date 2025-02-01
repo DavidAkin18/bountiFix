@@ -1,5 +1,5 @@
 <template>
-  <div class="login flex flex-col lg:flex-row items-center gap-8 lg:justify-center min-h-screen lg:bg-[#E5E5E5]">
+  <div class="login flex flex-col lg:flex-row items-center gap-8 lg:justify-center min-h-screen pt-24 lg:bg-[#E5E5E5]">
    
 
     <!-- Form Section -->
@@ -64,7 +64,7 @@
             Log In
           </button>
           <p class="text-sm text-gray-500">
-            <router-link to="/" class="text-blue-500 hover:underline">Sign Up</router-link>
+            <router-link to="/signUp" class="text-blue-500 hover:underline">Sign Up</router-link>
           </p>
         </div>
       </form>
@@ -96,7 +96,7 @@ export default {
       if (this.email && this.password) {
         if (this.validatePassword(this.password)) {
           // If all conditions are met, redirect to /home
-          this.$router.push('/home');
+          this.$router.push('/dashboard');
         } else {
           // Show password error
           this.passwordError = true;

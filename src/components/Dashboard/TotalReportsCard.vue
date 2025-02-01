@@ -1,7 +1,7 @@
 <!-- TotalReportsCard.vue -->
 <template>
     <div :class="{'bg-gray-100 text-black': !isDarkMode, 'bg-gray-700 text-white': isDarkMode}"
-      class="p-4 rounded-lg shadow-lg flex justify-between items-center transition-all duration-300">
+      class="p-4 rounded-lg shadow-lg flex justify-between items-center transition-all duration-300 pt-28">
       <div>
         <p class="font-semibold">Total Reports</p>
         <h2 class="text-2xl">{{ totalReports }}</h2>

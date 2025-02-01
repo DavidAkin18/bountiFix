@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#E5E5E5] lg:my-5 w-full">
-    <div class="lg: mx-auto shadow-md p-8 bg-white rounded">
+    <div class="lg: mx-auto shadow-md p-8 pt-28 max-w5xl mx-auto px-6 md:px-20 pt-28  bg-white rounded">
       <!-- Background and Profile Section -->
 
       <!-- Form Section -->
@@ -89,34 +89,38 @@
         <div class="mb-4">
           <label for="dateOfBirth" class="block text-sm font-medium text-gray-700">Date of Birth</label>
           <div class="flex gap-3">
+            <!-- Year -->
             <select
               id="year"
               v-model="profile.dateOfBirth.year"
               class="mt-1 p-2 lg:w-1/6 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500"
             >
-              <option value="year" disabled>Year</option>
+              <option value="year" disabled selected>Year</option>
               <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
             </select>
 
+            <!-- Month -->
             <select
               id="month"
               v-model="profile.dateOfBirth.month"
               class="mt-1 p-2 lg:w-1/6 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500"
             >
-              <option value="month" disabled>Month</option>
+              <option value="month" disabled selected>Month</option>
               <option v-for="month in months" :key="month.value" :value="month.value">{{ month.name }}</option>
             </select>
 
+            <!-- Day -->
             <select
               id="day"
               v-model="profile.dateOfBirth.day"
               class="mt-1 p-2 lg:w-1/6 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500"
             >
-              <option value="day" disabled>Day</option>
+              <option value="day" disabled selected>Day</option>
               <option v-for="day in daysInMonth" :key="day" :value="day">{{ day }}</option>
             </select>
           </div>
         </div>
+
 
         <p @click="showBio = !showBio" class="mt-1 p-2 w-full shadow-lg rounded-md">
           Bio
@@ -214,9 +218,9 @@ export default {
         job: '',
         website: '',
         dateOfBirth: {
-          year: null,
-          month: null,
-          day: null,
+          year: 'year',
+          month: 'month',
+          day: 'day',
         },
         bio: '',
         profilePicture: null,

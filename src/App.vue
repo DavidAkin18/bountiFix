@@ -1,62 +1,76 @@
 <template>
   <div class="app-container">
-    <Navbar :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" />
-    
-    <main class="content pt-20">
-      <router-view :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" />
-    </main>
+    <!-- Large Screen Sidebar, only if not on authentication routes -->
+    <Sidebar v-if="!isMobile && !isAuthPage" />
 
-    <Footer :is-dark-mode="isDarkMode" :toggle-dark-mode="toggleDarkMode" />
+    <!-- Main Content -->
+    <div class="main-content" :style="{ paddingLeft: isAuthPage || isMobile ? '0' : '250px' }">
+      <!-- Mobile Sidebar, only if not on authentication routes -->
+      <MobileSidebar v-if="isMobile && !isAuthPage" :isOpen="isMobileMenuOpen" @close="isMobileMenuOpen = false" />
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import Footer from './components/Footer.vue';
-import Navbar from './components/Navbar.vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';  // Import useRoute to access current route
+import Sidebar from '@/components/Sidebar.vue';
+import MobileSidebar from '@/components/MobileSidebar.vue';
+import Navbar from '@/components/Navbar.vue';
 
 export default {
   components: {
-    Navbar,
-    Footer
+    Sidebar,
+    MobileSidebar,
+    Navbar
   },
-  data() {
-    return {
-      isDarkMode: false, // Initially set to false (light mode)
+  setup() {
+    const isMobile = ref(window.innerWidth <= 768); // Track if screen is mobile
+    const isMobileMenuOpen = ref(false); // Track mobile sidebar state
+    const route = useRoute(); // Get the current route
+
+    // List of authentication paths to check against
+    const authPaths = ['/','/signUp', '/reset', '/login', '/complete'];
+
+    // Function to check if the current route is one of the authentication paths
+    const isAuthPage = computed(() => authPaths.includes(route.path));
+
+    // Function to check screen size
+    const checkScreenSize = () => {
+      isMobile.value = window.innerWidth <= 768;
     };
-  },
-  created() {
-    const savedMode = localStorage.getItem('darkMode') === 'true';
-    this.isDarkMode = savedMode;
-  },
-  methods: {
-    toggleDarkMode() {
-      this.isDarkMode = !this.isDarkMode;
-      localStorage.setItem('darkMode', this.isDarkMode);
-    },
-  },
+
+    // Add event listener on mount
+    onMounted(() => {
+      window.addEventListener('resize', checkScreenSize);
+    });
+
+    // Remove event listener on unmount
+    onUnmounted(() => {
+      window.removeEventListener('resize', checkScreenSize);
+    });
+
+    return { isMobile, isMobileMenuOpen, isAuthPage };
+  }
 };
 </script>
 
-
 <style scoped>
-/* 🛠 Ensure Full-Page Layout */
 .app-container {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensures the app takes at least the full viewport height */
 }
 
-.content {
-  flex-grow: 1; /* Pushes footer to the bottom */
-  padding-bottom: 50px; /* Default padding */
+/* Sidebar hidden on mobile */
+.main-content {
+  flex-grow: 1;
+  transition: padding-left 0.3s ease; /* Smooth transition for padding change */
 }
 
-/* 🛠 Apply 550px padding-bottom only for mobile screens */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .content {
-    padding-bottom: 500px;
+  .main-content {
+    padding-left: 0;
   }
 }
 </style>
-
-

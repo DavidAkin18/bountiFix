@@ -1,5 +1,5 @@
 <template>
-    <div class="dark-part flex flex-col lg:flex-row items-center gap-8 lg:gap-0 lg:justify-center  lg:bg-gray-200">
+    <div class="dark-part flex flex-col lg:flex-row items-center gap-8 lg:gap-0 lg:justify-center  pt-24 lg:bg-gray-200">
       
       <div class=" w-full md:w-3/4 p-2 ">
          

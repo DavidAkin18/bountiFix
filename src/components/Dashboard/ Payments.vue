@@ -1,6 +1,6 @@
 <template>
     <div :class="{'bg-white text-black': !isDarkMode, 'bg-gray-900 text-white': isDarkMode}"
-      class="max-w-6xl mx-auto px-6 py-16 transition-colors duration-300">
+      class="max-w-6xl mx-auto px-6 py-16 transition-colors duration-300 pt-28">
       <h1 class="text-3xl font-bold mb-6">Payments</h1>
       <div>
         <p class="font-semibold mb-4">Your Payments</p>

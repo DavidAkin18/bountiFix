@@ -6,7 +6,8 @@
       :style="{ backgroundImage: 'url(https://t3.ftcdn.net/jpg/07/53/20/82/360_F_753208233_2tFjybdyLCTU12MEJfguSJKBtl0sG5pj.jpg)' }"
     >
       <!-- Overlay for better readability -->
-      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="absolute inset-0 bg-black opacity-50 flex justify-between items-center"></div>
+       
     </div>
 
     <!-- Content -->

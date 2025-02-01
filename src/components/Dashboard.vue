@@ -1,7 +1,18 @@
 <template>
+  <nav :class="{'bg-gray-900 text-white': isDarkMode, 'bg-white text-black': !isDarkMode}"
+       class="fixed top-0 left-64 right-0 h-16 hidden lg:flex justify-between items-center  px-6 shadow-md">
+    
+    <!-- App Name -->
+    <h1 class="text-xl font-semibold">Dashboard</h1>
+
+    <!-- User Avatar -->
+    <div class="flex items-center space-x-4">
+      <img src="" class="h-10 w-10 rounded-full object-cover" alt="User Avatar">
+    </div>
+  </nav>
   <div
     :class="{'bg-white text-black': !isDarkMode, 'bg-gray-900 text-white': isDarkMode}"
-    class="max-w-6xl mx-auto px-6 md:px-20 pt-20  transition-colors duration-300 "
+    class="max-w5xl mx-auto border px-6 md:px-20 pt-28  transition-colors duration-300 "
   >
     <!-- Hacker Profile -->
     <div class="flex items-center space-x-4 mb-8 ">
@@ -41,7 +52,7 @@
       </div>
 
       <!-- Earnings -->
-      <router-link to="/payments">
+      <router-link to="/earnings">
         <div class="dashboard-card">
           <div>
             <p class="font-semibold">Earnings</p>
@@ -62,6 +73,9 @@
       </router-link>
       <router-link to="/bio" class="nav-card">
         <i class="ri-user-line text-2xl"></i> My Profile
+      </router-link>
+      <router-link to="/report-Form" class="nav-card">
+        <i class="ri-user-line text-2xl"></i> Report Form
       </router-link>
     </div>
 
