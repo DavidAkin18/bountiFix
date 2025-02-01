@@ -22,7 +22,7 @@
 
       <!-- Buttons -->
       <div class="flex justify-center mt-8 space-x-4">
-        <router-link to="/signup" class="px-6 py-3 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700">
+        <router-link to="/signUp" class="px-6 py-3 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700">
           Get Started
         </router-link>
         <router-link to="login" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-md shadow-md hover:bg-gray-300 dark:hover:bg-gray-600">
@@ -36,8 +36,6 @@
 
 <script>
 export default {
-  props: {
-    isDarkMode: Boolean
-  }
+  
 };
 </script>

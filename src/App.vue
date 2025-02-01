@@ -31,7 +31,7 @@ export default {
     const route = useRoute(); // Get the current route
 
     // List of authentication paths to check against
-    const authPaths = ['/','/signUp', '/reset', '/login', '/complete'];
+    const authPaths = ['/', '/signUp', '/reset', '/login', '/complete'];
 
     // Function to check if the current route is one of the authentication paths
     const isAuthPage = computed(() => authPaths.includes(route.path));
